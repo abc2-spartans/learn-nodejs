@@ -21,18 +21,22 @@ const obj = {
   age: 25,
   city: "Delhi",
   country: "India",
+  address: {
+    street: "123",
+    pincode: "110001",
+  },
 };
 
-const snakeStr = snakeCase(str);
-const kebabStr = kebabCase(str);
-const capStr = capitalize(str);
+const snakeStr = snakeCase(str); // hello_world
+const kebabStr = kebabCase(str); // hello-world
+const capStr = capitalize(str); // Hello world
 console.log({ snakeStr, kebabStr, capStr });
 
 const newObj = omit(obj, ["city", "country"]);
 console.log({ newObj });
 
-const age = get(obj, "age");
-console.log({ age });
+const street = get(obj, "address.street");
+console.log({ street });
 
 const diff = difference([2, 1], [2, 3]);
 console.log({ diff });
@@ -40,6 +44,8 @@ console.log({ diff });
 console.log("\n\n********** moment **********\n");
 const now = moment();
 console.log({ now });
+const nowFormat = now.format("DD/MM/YYYY");
+console.log({ nowFormat });
 
 const date = moment("2021-01-01");
 console.log({ date });
